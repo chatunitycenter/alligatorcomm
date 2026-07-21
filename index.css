@@ -23,6 +23,7 @@ body{
   min-height:100vh;
   position:relative;
   overscroll-behavior-x:none;
+  margin:0;
 }
 
 .bg-layer{
@@ -36,6 +37,7 @@ body{
   background-repeat:no-repeat;
   z-index:-2;
   pointer-events:none;
+  overflow:hidden;
 }
 
 img,
@@ -81,6 +83,7 @@ main,
 main{
   z-index:5;
   width:100%;
+  max-width:100%;
   overflow:hidden;
 }
 
@@ -97,6 +100,7 @@ main{
   top:0;
   left:0;
   width:100%;
+  max-width:100%;
   z-index:1000;
   background:rgba(10,10,10,.72);
   backdrop-filter:blur(15px);
@@ -104,7 +108,8 @@ main{
 }
 
 .nav-container{
-  width:min(1280px,100%);
+  width:100%;
+  max-width:1280px;
   margin:auto;
   padding:18px 24px;
   display:flex;
@@ -195,6 +200,7 @@ main{
   top:86px;
   right:12px;
   left:12px;
+  max-width:calc(100% - 24px);
   background:rgba(10,10,10,.95);
   padding:18px;
   border-radius:14px;
@@ -232,6 +238,7 @@ main{
   text-align:center;
   padding:140px 20px 100px;
   width:100%;
+  max-width:100%;
   overflow:hidden;
 }
 
@@ -240,6 +247,7 @@ main{
   position:absolute;
   width:min(800px,90vw);
   height:min(800px,90vw);
+  max-width:100%;
   background:radial-gradient(circle, rgba(0,255,136,.14) 0%, transparent 70%);
   filter:blur(100px);
   z-index:-1;
@@ -398,7 +406,8 @@ main{
 }
 
 .section{
-  width:min(1200px,100%);
+  width:100%;
+  max-width:1200px;
   margin:0 auto;
   padding:90px 20px;
 }
@@ -464,7 +473,7 @@ main{
 }
 
 .social-card:hover{
-  transform:translateY(-10px) rotateX(4deg) rotateY(-4deg);
+  transform:translateY(-10px);
   border-color:rgba(0,255,136,.34);
   box-shadow:0 20px 40px rgba(0,255,136,.10);
 }
@@ -592,7 +601,8 @@ main{
 
 .timeline{
   position:relative;
-  width:min(1000px,100%);
+  width:100%;
+  max-width:1000px;
   margin:0 auto;
   padding:20px 0;
 }
@@ -813,6 +823,9 @@ main{
 #intro{
   position:fixed;
   inset:0;
+  width:100%;
+  max-width:100%;
+  overflow:hidden;
   background:rgba(0,0,0,.82);
   background-image:url('intro.gif');
   background-size:cover;
@@ -897,7 +910,7 @@ main{
   border:1px solid rgba(0,255,136,.20);
   border-radius:12px;
   width:220px;
-  max-width:calc(100vw - 16px);
+  max-width:calc(100% - 32px);
   padding:12px;
   backdrop-filter:blur(8px);
   box-shadow:
@@ -1100,6 +1113,7 @@ main{
 
   .music-player{
     width:190px;
+    max-width:calc(100% - 20px);
     right:10px;
     bottom:10px;
   }
@@ -1266,6 +1280,7 @@ main{
     font-size:12px;
   }
 }
+
 .intro-warning{
   width:100%;
   max-width:32ch;
