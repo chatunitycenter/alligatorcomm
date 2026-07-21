@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" data-theme="dark">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,23 +20,24 @@
   <meta name="twitter:description" content="La presenza ufficiale di ALLIGATOR: canali, storia, progetto Mossad e team.">
   <meta name="twitter:image" content="https://i.ibb.co/twpZNsC5/alli.jpg">
 
-  <link rel="icon" type="image/png" href="./alli.jpeg">
+  <link rel="icon" type="image/jpeg" href="./alli.jpeg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
 
   <div class="site-bg" aria-hidden="true"></div>
-  <div class="site-noise" aria-hidden="true"></div>
+  <div class="site-overlay" aria-hidden="true"></div>
+  <div class="site-grid" aria-hidden="true"></div>
 
   <div id="intro" class="intro-screen" aria-label="Schermata introduttiva">
     <div class="intro-media" aria-hidden="true"></div>
-    <div class="intro-overlay" aria-hidden="true"></div>
+    <div class="intro-fade" aria-hidden="true"></div>
 
     <div class="intro-panel">
       <p class="eyebrow">Accesso ufficiale</p>
@@ -47,32 +48,18 @@
         Attenzione: il sito contiene elementi visivi intensi e avvia l'audio dopo l'ingresso.
       </div>
 
-      <button class="intro-enter" id="enterSite" type="button">
-        Entra nel sito
-      </button>
-
+      <button class="intro-enter" id="enterSite" type="button">Entra nel sito</button>
       <p class="intro-hint">Tocca o clicca per continuare</p>
     </div>
   </div>
 
-  <header class="site-header" id="top">
+  <header class="site-header">
     <nav class="navbar" aria-label="Navigazione principale">
       <div class="nav-shell">
         <a class="brand" href="#home" aria-label="ALLIGATOR home">
           <span class="brand-mark" aria-hidden="true"></span>
           <span class="brand-text">ALLIGATOR</span>
         </a>
-
-        <button
-          class="nav-toggle"
-          id="hamburger"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mobileMenu"
-          aria-label="Apri menu">
-          <span></span>
-          <span></span>
-        </button>
 
         <div class="nav-links">
           <a href="#home">Home</a>
@@ -82,9 +69,13 @@
           <a href="#team">Team</a>
         </div>
 
-        <div class="nav-actions">
-          <a class="nav-cta" href="https://chat.whatsapp.com/Lfi7ahs3khZKoIhRPvYHSp?s=cl&p=a&ilr=1" target="_blank" rel="noopener noreferrer">Entra ora</a>
-        </div>
+        <a class="nav-cta" href="https://chat.whatsapp.com/Lfi7ahs3khZKoIhRPvYHSp?s=cl&p=a&ilr=1" target="_blank" rel="noopener noreferrer">Entra ora</a>
+
+        <button class="nav-toggle" id="hamburger" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Apri menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
 
       <div class="mobile-menu" id="mobileMenu">
@@ -106,7 +97,7 @@
           <p class="eyebrow">Dal 2020</p>
           <h2 class="hero-title">Una presenza costruita per restare sopra il rumore.</h2>
           <p class="hero-text">
-            C'è chi prova a farsi notare. ALLIGATOR si fa riconoscere. Una community con struttura, tono e identità, riscritta ora con più ordine, più peso e più controllo.
+            C'è chi prova a farsi notare. ALLIGATOR si fa riconoscere. Una community con struttura, tono e identità. Nessun caos gratuito, nessun rumore di fondo.
           </p>
 
           <div class="hero-actions">
@@ -127,51 +118,49 @@
       </div>
     </section>
 
-    <section class="section socials-section" id="socials">
-  <div class="section-heading">
-    <p class="eyebrow">Canali</p>
-    <h2>I punti d'accesso ufficiali</h2>
-    <p>Due ingressi, una sola identità. Qui entra chi vuole presenza diretta, continuità e contesto.</p>
-  </div>
-
-  <div class="social-layout">
-    <a class="social-card social-card-media" href="https://chat.whatsapp.com/Lfi7ahs3khZKoIhRPvYHSp?s=cl&p=a&ilr=1" target="_blank" rel="noopener noreferrer">
-      <div class="social-image-wrap whatsapp-image-wrap">
-        <img src="./whatsapp.png" alt="Preview visiva del canale WhatsApp" width="900" height="700" loading="lazy" decoding="async">
+    <section class="section" id="socials">
+      <div class="section-heading">
+        <p class="eyebrow">Canali</p>
+        <h2>I punti d'accesso ufficiali</h2>
+        <p>Due ingressi, una sola identità. Qui entra chi vuole presenza diretta, continuità e contesto.</p>
       </div>
 
-      <div class="social-card-body">
-        <div class="social-topline">
-          <span class="status-dot"></span>
-          <span class="social-label">Canale principale</span>
-        </div>
+      <div class="social-layout">
+        <a class="social-card" href="https://chat.whatsapp.com/Lfi7ahs3khZKoIhRPvYHSp?s=cl&p=a&ilr=1" target="_blank" rel="noopener noreferrer">
+          <div class="social-image-wrap whatsapp-image-wrap">
+            <img src="./whatsapp.png" alt="Preview visiva del canale WhatsApp" width="900" height="700" loading="lazy" decoding="async">
+          </div>
 
-        <h3>WhatsApp</h3>
-        <p>Il punto d’ingresso più diretto alla community. Presenza immediata, contatto reale, accesso centrale.</p>
-        <span class="social-link">Entra nel gruppo</span>
+          <div class="social-card-body">
+            <div class="social-topline">
+              <span class="status-dot"></span>
+              <span class="social-label">Canale principale</span>
+            </div>
+            <h3>WhatsApp</h3>
+            <p>Il punto d’ingresso più diretto alla community. Presenza immediata, contatto reale, accesso centrale.</p>
+            <span class="social-link">Entra nel gruppo</span>
+          </div>
+        </a>
+
+        <a class="social-card" href="https://discord.gg/npMj42DQP" target="_blank" rel="noopener noreferrer">
+          <div class="social-image-wrap discord-image-wrap">
+            <img src="./discord.png" alt="Preview visiva del canale Discord" width="900" height="700" loading="lazy" decoding="async">
+          </div>
+
+          <div class="social-card-body">
+            <div class="social-topline">
+              <span class="status-dot"></span>
+              <span class="social-label">Presenza estesa</span>
+            </div>
+            <h3>Discord</h3>
+            <p>La struttura più ampia: community, ordine interno e continuità visiva in uno spazio più articolato.</p>
+            <span class="social-link">Entra nel server</span>
+          </div>
+        </a>
       </div>
-    </a>
+    </section>
 
-    <a class="social-card social-card-media" href="https://discord.gg/npMj42DQP" target="_blank" rel="noopener noreferrer">
-      <div class="social-image-wrap discord-image-wrap">
-        <img src="./discord.png" alt="Preview visiva del canale Discord" width="900" height="700" loading="lazy" decoding="async">
-      </div>
-
-      <div class="social-card-body">
-        <div class="social-topline">
-          <span class="status-dot"></span>
-          <span class="social-label">Presenza estesa</span>
-        </div>
-
-        <h3>Discord</h3>
-        <p>La struttura più ampia: community, ordine interno e continuità visiva in uno spazio più articolato.</p>
-        <span class="social-link">Entra nel server</span>
-      </div>
-    </a>
-  </div>
-</section>
-
-    <section class="section timeline-section" id="timeline">
+    <section class="section" id="timeline">
       <div class="section-heading">
         <p class="eyebrow">Storia</p>
         <h2>Dal 2020 a oggi</h2>
@@ -217,7 +206,7 @@
       </div>
     </section>
 
-    <section class="section mossad-section" id="mossad">
+    <section class="section" id="mossad">
       <div class="section-heading">
         <p class="eyebrow">Progetto</p>
         <h2>Mossad</h2>
@@ -232,15 +221,13 @@
         <div class="mossad-copy">
           <p class="feature-state">In sviluppo</p>
           <h3>Un sistema più autonomo, rapido e leggibile.</h3>
-          <p>
-            Il sito di Mossad servirà a rendere il processo di comunicazione e segnalazione più indipendente, diretto e strutturato.
-          </p>
+          <p>Il sito di Mossad servirà a rendere il processo di comunicazione e segnalazione più indipendente, diretto e strutturato.</p>
           <a class="button button-primary" href="https://mossad.online" target="_blank" rel="noopener noreferrer">Vai al sito</a>
         </div>
       </div>
     </section>
 
-    <section class="section team-section" id="team">
+    <section class="section" id="team">
       <div class="section-heading">
         <p class="eyebrow">Team</p>
         <h2>Chi tiene in piedi ALLIGATOR</h2>
