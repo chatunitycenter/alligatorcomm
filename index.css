@@ -11,6 +11,7 @@ body{
   width:100%;
   max-width:100%;
   overflow-x:hidden;
+  background-color:#050505;
 }
 
 html{
@@ -25,6 +26,7 @@ body{
   overscroll-behavior-x:none;
   margin:0;
   background:#050505;
+  padding-bottom:0;
 }
 
 .bg-layer{
@@ -161,16 +163,36 @@ main{
     0 0 10px rgba(0,255,136,.5),
     0 0 20px rgba(0,200,100,.24);
   flex-shrink:0;
+  flex-wrap:nowrap;
+  white-space:nowrap;
+  min-width:0;
+}
+
+.logo-mark{
+  width:32px;
+  height:32px;
+  min-width:32px;
+  border-radius:10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, rgba(0,255,136,.24), rgba(0,255,136,.08));
+  border:1px solid rgba(0,255,136,.3);
+  color:#00ff88;
+  font-family:'Cinzel',sans-serif;
+  font-size:18px;
+  font-weight:900;
+  box-shadow:0 0 12px rgba(0,255,136,.18);
+}
+
+.logo-text{
+  display:block;
+  white-space:nowrap;
+  line-height:1;
 }
 
 .logo-icon{
-  filter:drop-shadow(0 0 8px rgba(0,255,136,.6));
-  animation:logo-float 3s ease-in-out infinite;
-}
-
-@keyframes logo-float{
-  0%,100%{ transform:translateY(0) rotate(0deg); }
-  50%{ transform:translateY(-3px) rotate(-4deg); }
+  display:none;
 }
 
 .nav-links{
@@ -361,7 +383,7 @@ main{
 }
 
 .title:hover{
-  animation:glitch 0.4s linear;
+  animation:glitch .4s linear;
 }
 
 @keyframes glitch{
@@ -436,7 +458,7 @@ main{
 }
 
 .hero-btn:active{
-  transform:scale(0.96);
+  transform:scale(.96);
 }
 
 .primary-btn{
@@ -616,10 +638,34 @@ main{
   box-shadow:0 20px 40px rgba(0,255,136,.10);
 }
 
+.social-icon,
+.social-arrow,
+.warning-icon,
+.control-btn svg{
+  flex-shrink:0;
+}
+
 .social-icon{
   color:#00ff88;
   filter:drop-shadow(0 0 10px rgba(0,255,136,.4));
   margin-bottom:16px;
+}
+
+.social-card h3{
+  font-family:'Cinzel',sans-serif;
+  font-size:30px;
+  margin-bottom:14px;
+  position:relative;
+  z-index:1;
+}
+
+.social-card p{
+  color:#d0d0d0;
+  line-height:1.8;
+  font-size:15px;
+  position:relative;
+  z-index:1;
+  max-width:34ch;
 }
 
 .social-badge{
@@ -640,23 +686,6 @@ main{
 @keyframes badge-pulse{
   0%,100%{ box-shadow:0 0 0 rgba(0,255,136,0); }
   50%{ box-shadow:0 0 12px rgba(0,255,136,.4); }
-}
-
-.social-card h3{
-  font-family:'Cinzel',sans-serif;
-  font-size:30px;
-  margin-bottom:14px;
-  position:relative;
-  z-index:1;
-}
-
-.social-card p{
-  color:#d0d0d0;
-  line-height:1.8;
-  font-size:15px;
-  position:relative;
-  z-index:1;
-  max-width:34ch;
 }
 
 .social-cta{
@@ -965,6 +994,7 @@ main{
 .site-footer{
   text-align:center;
   padding:26px 20px 40px;
+  padding-bottom:calc(34px + env(safe-area-inset-bottom, 0px));
   background:rgba(4,4,4,.96);
   border-top:1px solid rgba(0,255,136,.14);
 }
@@ -1073,7 +1103,6 @@ main{
 }
 
 .warning-icon{
-  flex-shrink:0;
   color:#ff8a8a;
 }
 
@@ -1111,6 +1140,7 @@ main{
   box-shadow:0 0 18px rgba(0,255,136,.10), inset 0 0 12px rgba(0,255,136,.03);
   opacity:.88;
   transition:opacity .3s ease, transform .3s ease;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .music-player:hover{
@@ -1125,6 +1155,8 @@ main{
   margin-bottom:10px;
   padding-bottom:8px;
   border-bottom:1px solid rgba(0,255,136,.10);
+  gap:8px;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .player-title{
@@ -1176,6 +1208,7 @@ main{
   margin-bottom:8px;
   font-family:'Cinzel',sans-serif;
   letter-spacing:.4px;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .seek-bar{
@@ -1190,6 +1223,7 @@ main{
   margin-bottom:10px;
   display:block;
   vertical-align:middle;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .seek-bar::-webkit-slider-runnable-track{
@@ -1238,6 +1272,7 @@ main{
   display:flex;
   gap:8px;
   justify-content:center;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .control-btn{
@@ -1252,10 +1287,14 @@ main{
   border-radius:7px;
   cursor:pointer;
   transition:.25s;
+  overflow:hidden;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .control-btn svg{
   pointer-events:none;
+  width:18px;
+  height:18px;
 }
 
 .control-btn:hover{
@@ -1266,7 +1305,7 @@ main{
 }
 
 .control-btn:active{
-  transform:scale(0.95);
+  transform:scale(.95);
 }
 
 .control-btn.active-btn{
@@ -1276,6 +1315,12 @@ main{
 
 #audioPlayer{
   display:none;
+}
+
+@supports (padding: max(0px)) {
+  body{
+    padding-bottom:max(0px, env(safe-area-inset-bottom));
+  }
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -1312,31 +1357,226 @@ main{
 }
 
 @media (max-width:640px){
-  body{ background-attachment:scroll; }
-  .nav-container{ padding:16px 14px; }
-  .logo{ font-size:26px; letter-spacing:2px; }
-  .mobile-menu{ top:74px; }
-  .title{ font-size:clamp(58px,20vw,110px); }
-  .subtitle{ font-size:15px; max-width:24ch; margin-top:22px; }
-  .hero-buttons{ flex-direction:column; align-items:center; gap:12px; }
-  .hero-btn{ width:min(100%,320px); padding:15px 18px; font-size:12px; }
-  .section-head h2{ font-size:clamp(26px,9vw,38px); }
-  .section-head p{ font-size:15px; line-height:1.7; }
-  .social-card{ min-height:auto; padding:24px; }
-  .social-card h3{ font-size:24px; }
-  .team-image-wrap{ min-height:200px; padding:12px; }
-  .team-image{ max-height:300px; }
-  .team-content{ padding:20px; }
-  .team-content h3{ font-size:22px; }
-  .team-content p{ font-size:14px; line-height:1.7; }
-  .mossad-logo-wrap{ width:140px; height:140px; }
-  .mossad-content h3{ font-size:26px; }
-  .quote-break p{ font-size:clamp(20px,8vw,34px); letter-spacing:1px; }
-  .site-footer{ padding:22px 14px 34px; }
-  .site-footer p{ font-size:11px; line-height:1.7; word-break:break-word; }
-  .intro-text{ font-size:clamp(44px,16vw,78px); padding:10px 0; }
-  .intro-subtitle{ max-width:18ch; margin-top:12px; line-height:1.4; }
-  .intro-hint{ font-size:12px; margin-top:20px; }
-  .music-player{ width:170px; }
-  .player-title{ font-size:12px; }
+  body,
+  html{
+    overflow-x:hidden;
+    width:100%;
+    background-attachment:scroll;
+  }
+
+  .navbar{
+    width:100vw;
+  }
+
+  .nav-container{
+    gap:10px;
+    padding:14px 12px;
+  }
+
+  .logo{
+    gap:8px;
+    font-size:20px;
+    letter-spacing:1px;
+    max-width:calc(100% - 52px);
+    overflow:hidden;
+  }
+
+  .logo-mark{
+    width:28px;
+    height:28px;
+    min-width:28px;
+    font-size:15px;
+    border-radius:8px;
+  }
+
+  .logo-text{
+    font-size:22px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .hamburger{
+    width:40px;
+    height:40px;
+    min-width:40px;
+    gap:5px;
+  }
+
+  .hamburger .bar{
+    width:24px;
+    height:2.5px;
+  }
+
+  .hamburger[aria-expanded="true"] .bar1{
+    transform:translateY(7.5px) rotate(45deg);
+  }
+
+  .hamburger[aria-expanded="true"] .bar3{
+    transform:translateY(-7.5px) rotate(-45deg);
+  }
+
+  .mobile-menu{
+    top:68px;
+    left:10px;
+    right:10px;
+    max-width:calc(100vw - 20px);
+  }
+
+  .title{
+    font-size:clamp(58px,20vw,110px);
+  }
+
+  .subtitle{
+    font-size:15px;
+    max-width:24ch;
+    margin-top:22px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+  }
+
+  .hero-btn{
+    width:min(100%,320px);
+    padding:15px 18px;
+    font-size:12px;
+  }
+
+  .section-head h2{
+    font-size:clamp(26px,9vw,38px);
+  }
+
+  .section-head p{
+    font-size:15px;
+    line-height:1.7;
+  }
+
+  .social-card{
+    min-height:auto;
+    padding:24px;
+  }
+
+  .social-icon svg{
+    width:30px;
+    height:30px;
+  }
+
+  .social-card h3{
+    font-size:24px;
+  }
+
+  .social-arrow{
+    width:16px;
+    height:16px;
+  }
+
+  .warning-icon{
+    width:16px;
+    height:16px;
+  }
+
+  .team-image-wrap{
+    min-height:200px;
+    padding:12px;
+  }
+
+  .team-image{
+    max-height:300px;
+  }
+
+  .team-content{
+    padding:20px;
+  }
+
+  .team-content h3{
+    font-size:22px;
+  }
+
+  .team-content p{
+    font-size:14px;
+    line-height:1.7;
+  }
+
+  .mossad-logo-wrap{
+    width:140px;
+    height:140px;
+  }
+
+  .mossad-content h3{
+    font-size:26px;
+  }
+
+  .quote-break p{
+    font-size:clamp(20px,8vw,34px);
+    letter-spacing:1px;
+  }
+
+  .site-footer{
+    padding:22px 14px 34px;
+  }
+
+  .site-footer p{
+    font-size:11px;
+    line-height:1.7;
+    word-break:break-word;
+    white-space:normal;
+  }
+
+  .intro-text{
+    font-size:clamp(44px,16vw,78px);
+    padding:10px 0;
+  }
+
+  .intro-subtitle{
+    max-width:18ch;
+    margin-top:12px;
+    line-height:1.4;
+  }
+
+  .intro-hint{
+    font-size:12px;
+    margin-top:20px;
+  }
+
+  .music-player{
+    right:8px;
+    bottom:8px;
+    width:168px;
+    max-width:calc(100vw - 16px);
+    padding:10px;
+  }
+
+  .player-title{
+    font-size:12px;
+  }
+
+  .player-controls{
+    gap:10px;
+  }
+
+  .control-btn{
+    width:34px;
+    height:34px;
+    min-width:34px;
+  }
+
+  .control-btn svg{
+    width:17px;
+    height:17px;
+  }
+}
+
+@media (hover:none) and (pointer:coarse){
+  .holo-tilt{
+    transform:none !important;
+  }
+
+  .social-card:hover,
+  .team-card:hover,
+  .mossad-card:hover,
+  .timeline-card:hover{
+    transform:none;
+  }
 }
